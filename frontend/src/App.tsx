@@ -1,73 +1,25 @@
 import { useState } from 'react';
 import { API_BASE_URL } from './config';
+import {
+  AVAILABILITY_DAYS,
+  AVAILABILITY_HOURS,
+  AVAILABILITY_MINUTES,
+  CIVILITIES,
+  REQUEST_TYPES,
+} from './types/contact';
 import type {
   Availability,
-  AvailabilityDay,
-  AvailabilityHour,
-  AvailabilityMinute,
-  Civility,
+  ContactFormData,
   FormErrors,
-  RequestType,
+  SubmitStatus,
 } from './types/contact';
-
-const DAY_OPTIONS: AvailabilityDay[] = [
-  'Lundi',
-  'Mardi',
-  'Mercredi',
-  'Jeudi',
-  'Vendredi',
-  'Samedi',
-];
-
-const HOUR_OPTIONS: AvailabilityHour[] = [
-  '7',
-  '8',
-  '9',
-  '10',
-  '11',
-  '12',
-  '14',
-  '15',
-  '16',
-  '17',
-  '18',
-];
-
-const MINUTE_OPTIONS: AvailabilityMinute[] = ['00', '15', '30', '45'];
-
-type FormData = {
-  civility: Civility;
-  lastName: string;
-  firstName: string;
-  email: string;
-  phone: string;
-  requestType: RequestType;
-  message: string;
-};
-
-type SubmitStatus = {
-  type: 'success' | 'error';
-  message: string;
-};
-
-const initialFormData: FormData = {
-  civility: 'Mme',
-  lastName: '',
-  firstName: '',
-  email: '',
-  phone: '',
-  requestType: 'Demande de visite',
-  message: '',
-};
-
-const initialPendingAvailability: Availability = {
-  day: 'Lundi',
-  hour: '7',
-  minute: '00',
-};
+import {
+  initialFormData,
+  initialPendingAvailability,
+} from './constants/contactForm';
 
 function App() {
-  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [formData, setFormData] = useState<ContactFormData>(initialFormData);
   const [pendingAvailability, setPendingAvailability] = useState<Availability>(
     initialPendingAvailability
   );
@@ -94,14 +46,14 @@ function App() {
       }
     };
 
-  const handleCivilityChange = (value: Civility) => {
+  const handleCivilityChange = (value: ContactFormData['civility']) => {
     setFormData((previous) => ({
       ...previous,
       civility: value,
     }));
   };
 
-  const handleRequestTypeChange = (value: RequestType) => {
+  const handleRequestTypeChange = (value: ContactFormData['requestType']) => {
     setFormData((previous) => ({
       ...previous,
       requestType: value,
@@ -111,21 +63,21 @@ function App() {
   const handleDayChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPendingAvailability((previous) => ({
       ...previous,
-      day: event.target.value as AvailabilityDay,
+      day: event.target.value as Availability['day'],
     }));
   };
 
   const handleHourChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPendingAvailability((previous) => ({
       ...previous,
-      hour: event.target.value as AvailabilityHour,
+      hour: event.target.value as Availability['hour'],
     }));
   };
 
   const handleMinuteChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setPendingAvailability((previous) => ({
       ...previous,
-      minute: event.target.value as AvailabilityMinute,
+      minute: event.target.value as Availability['minute'],
     }));
   };
 
@@ -265,27 +217,18 @@ function App() {
               <h2 className="contact-card__section-title">VOS COORDONNÉES</h2>
 
               <div className="radio-row">
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="civility"
-                    checked={formData.civility === 'Mme'}
-                    onChange={() => handleCivilityChange('Mme')}
-                  />
-                  <span className="radio-dot" />
-                  <span>Mme</span>
-                </label>
-
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="civility"
-                    checked={formData.civility === 'M.'}
-                    onChange={() => handleCivilityChange('M.')}
-                  />
-                  <span className="radio-dot" />
-                  <span>M.</span>
-                </label>
+                {CIVILITIES.map((civility) => (
+                  <label className="radio-option" key={civility}>
+                    <input
+                      type="radio"
+                      name="civility"
+                      checked={formData.civility === civility}
+                      onChange={() => handleCivilityChange(civility)}
+                    />
+                    <span className="radio-dot" />
+                    <span>{civility}</span>
+                  </label>
+                ))}
               </div>
 
               <div className="input-row">
@@ -337,7 +280,7 @@ function App() {
 
                 <div className="availability-row">
                   <select value={pendingAvailability.day} onChange={handleDayChange}>
-                    {DAY_OPTIONS.map((day) => (
+                    {AVAILABILITY_DAYS.map((day) => (
                       <option key={day} value={day}>
                         {day}
                       </option>
@@ -345,7 +288,7 @@ function App() {
                   </select>
 
                   <select value={pendingAvailability.hour} onChange={handleHourChange}>
-                    {HOUR_OPTIONS.map((hour) => (
+                    {AVAILABILITY_HOURS.map((hour) => (
                       <option key={hour} value={hour}>
                         {hour} h
                       </option>
@@ -356,7 +299,7 @@ function App() {
                     value={pendingAvailability.minute}
                     onChange={handleMinuteChange}
                   >
-                    {MINUTE_OPTIONS.map((minute) => (
+                    {AVAILABILITY_MINUTES.map((minute) => (
                       <option key={minute} value={minute}>
                         {minute} m
                       </option>
@@ -401,38 +344,18 @@ function App() {
               <h2 className="contact-card__section-title">VOTRE MESSAGE</h2>
 
               <div className="radio-row radio-row--message">
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="requestType"
-                    checked={formData.requestType === 'Demande de visite'}
-                    onChange={() => handleRequestTypeChange('Demande de visite')}
-                  />
-                  <span className="radio-dot" />
-                  <span>Demande de visite</span>
-                </label>
-
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="requestType"
-                    checked={formData.requestType === 'Être rappelé.e'}
-                    onChange={() => handleRequestTypeChange('Être rappelé.e')}
-                  />
-                  <span className="radio-dot" />
-                  <span>Être rappelé.e</span>
-                </label>
-
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="requestType"
-                    checked={formData.requestType === 'Plus de photos'}
-                    onChange={() => handleRequestTypeChange('Plus de photos')}
-                  />
-                  <span className="radio-dot" />
-                  <span>Plus de photos</span>
-                </label>
+                {REQUEST_TYPES.map((requestType) => (
+                  <label className="radio-option" key={requestType}>
+                    <input
+                      type="radio"
+                      name="requestType"
+                      checked={formData.requestType === requestType}
+                      onChange={() => handleRequestTypeChange(requestType)}
+                    />
+                    <span className="radio-dot" />
+                    <span>{requestType}</span>
+                  </label>
+                ))}
               </div>
 
               <textarea
