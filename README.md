@@ -39,10 +39,20 @@ H2 Database : Elle m’a permis de mettre en place rapidement une base locale l�
 Maven : Je l’ai utilisé pour gérer les dépendances et lancer facilement le projet back-end dans un cadre Java/Spring.
 
 ## Lancement du projet
-Le projet est séparé en deux parties : un front-end React et un back-end Spring Boot.
-Le front-end est configuré pour démarrer sur le port 5173.
-Le back-end démarre sur le port 8080.
+Le projet est séparé en deux parties :
+- un front-end React
+- un back-end Spring Boot
+
+Ports utilisés par défaut :
+- front-end : `5173`
+- back-end : `8080`
+
 Si l’un de ces ports est déjà utilisé, il faut libérer le port concerné avant de lancer le projet.
+
+## Pré-requis
+Avant de lancer le projet, vérifier que les outils suivants sont installés :
+- **Java 17**
+- **Node.js** et **npm**
 
 ### 1. Cloner le projet
  
@@ -52,12 +62,23 @@ cd <nom-du-repo>
 ```
 
 ### 2. Lancer le back-end
-- Depuis le dossier `backend`, exécuter : 
+- Sous Linux/MacOS/Git Bash
+- Depuis le dossier `backend`,
 ```bash
-cd backend
 ./mvnw spring-boot:run
 ```
+- Sous Windows Powershell :
+```bash
+./mvnw.cmd spring-boot:run
+```
+Des fois le wrapper ne marche alors faire avec :
+```bash cmd /c mvnw.cmd spring-boot:run  ```
 - Pour compiler les tests unitaires :
+- Sous Windows Powershell :
+```bash
+./mvnw.cmd test
+```
+- Sous Linux/MacOS/Git Bash
 Depuis la racine du back-end, éxecuter : 
 ```bash
 ./mvnw test 
