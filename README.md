@@ -18,7 +18,7 @@ Un screenshot de la page principale :
 ## Stack technique et choix
 ### Front-end
 
-React 19 :  Pour construire une interface dynamique et gérer proprement les interactions du formulaire, notamment la mise à jour en temps réel des champs, l’ajout/suppression de disponibilités et l’affichage des retours utilisateur après soumission.
+React 19 :  Pour construire une interface dynamique et gérer proprement les interactions du formulaire, notamment la mise à jour en temps réel des champs, l’ajout et la suppression de disponibilités et l’affichage des retours utilisateur après soumission.
 
 TypeScript : Je l’ai utilisé pour mieux encadrer la structure des données du formulaire, sécuriser les manipulations côté front et rendre plus explicite le contrat entre ce qui est saisi dans l’interface et ce qui est envoyé à l’API.
 
@@ -47,7 +47,7 @@ Ports utilisés par défaut :
 - front-end : `5173`
 - back-end : `8080`
 
-Si l’un de ces ports est déjà utilisé, il faut libérer le port concerné avant de lancer le projet.
+Si l’un de ces ports est déjà utilisé, il faut libérer le port concerné avant de lancer le projet. L'idée est de lancer en même temps le front et le back sur deux terminaux différents. 
 
 ## Pré-requis
 Avant de lancer le projet, vérifier que les outils suivants sont installés :
