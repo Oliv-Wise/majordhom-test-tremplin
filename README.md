@@ -128,7 +128,7 @@ Le web représente donc pour moi à la fois un terrain d’application de mes co
  D’abord, pour accélérer certaines phases de réflexion technique, par exemple pour comparer plusieurs manières d’organiser le code, pour décider entre utiliser une base H2 ou Oracle.
  Ensuite, pour gagner du temps sur des ajustements visuels précis pendant l’intégration de la maquette, notamment sur les dimensions des règles CSS, les espacements et certains comportements CSS qui demandaient plusieurs itérations. 
  
- Enfin, pour relire du code et identifier des incohérences comme des erreurs de syntaxe, corriger et améliorer la lisibilité de ces parties.
+Enfin, pour identifier des incohérences comme des erreurs de syntaxe et corriger.
 
-En revanche, je garde toujours la main sur les choix finaux. Je teste ce qui est proposé, je corrige, j’adapte au contexte du projet, et je ne conserve que ce que je comprends. 
+Je garde toujours la main sur les choix finaux. Je teste ce qui est proposé, je corrige, j’adapte au contexte du projet, et je ne conserve que ce que je comprends et que je trouve cohérent. 
 Dans cet exercice, l’IA m’a surtout servi d’accélérateur de réflexion, d’aide au débogage et d’appui pour ajuster plus finement l’intégration de la maquette. 
