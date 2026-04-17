@@ -1,8 +1,10 @@
-package com.oliver.majordhomtest.backend.service;
+package com.oliver.majordhomtest.backend;
 
 import com.oliver.majordhomtest.backend.dto.AvailabilityRequest;
 import com.oliver.majordhomtest.backend.dto.CreateRequest;
 import com.oliver.majordhomtest.backend.repository.ContactRequestRepository;
+import com.oliver.majordhomtest.backend.service.ContactRequestService;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
