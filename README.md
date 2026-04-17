@@ -22,7 +22,7 @@ React 19 :  Pour construire une interface dynamique et gérer proprement les int
 
 TypeScript : Je l’ai utilisé pour mieux encadrer la structure des données du formulaire, sécuriser les manipulations côté front et rendre plus explicite le contrat entre ce qui est saisi dans l’interface et ce qui est envoyé à l’API.
 
-Fichier de types dédié (contact.ts) : J’ai volontairement déplacé les types hors du composant principal pour éviter de surcharger encore plus App.tsx, garder une structure plus lisible et centraliser la définition des données métier du formulaire.
+Fichier de types dédié (contact.ts) : J’ai volontairement déplacé les types hors du composant principal pour éviter de surcharger encore plus App.tsx, pour garder une structure plus lisible et centraliser la définition des données métier du formulaire.
 
 CSS : J’ai choisi de ne pas utiliser de bibliothèque UI afin de garder un contrôle fin sur l’intégration visuelle et reproduire la maquette avec davantage de précision, notamment sur les espacements, les proportions, les colonnes et le rendu global sur fond d’image.
 
