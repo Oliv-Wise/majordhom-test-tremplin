@@ -57,6 +57,11 @@ Depuis le dossier `backend`, exécuter :
 cd backend
 ./mvnw spring-boot:run
 ```
+Pour compiler les tests unitaires :
+Depuis la racine du back-end, éxecuter : 
+```bash
+./mvnw test 
+```
 - Le serveur démarre par défaut ici : http://localhost:8080
 - La console H2 est disponible ici : http://localhost:8080/h2-console
 avec les paramètres suivants : 
