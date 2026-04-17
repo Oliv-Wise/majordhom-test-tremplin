@@ -74,10 +74,12 @@ cd <nom-du-repo>
 Des fois le wrapper ne marche alors faire avec :
 ```bash cmd /c mvnw.cmd spring-boot:run  ```
 - Pour compiler les tests unitaires :
+- Avant de lancer les tests unitaires, veillez à fermer toute instance de l’application susceptible d’utiliser la base H2.
 - Sous Windows Powershell :
 ```bash
 ./mvnw.cmd test
 ```
+
 - Sous Linux/MacOS/Git Bash
 Depuis la racine du back-end, éxecuter : 
 ```bash
