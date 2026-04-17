@@ -1,7 +1,7 @@
 # majordhom-test-tremplin
 
 ## À propos de moi 
-Je m’appelle Marvens Oliver Joseph, étudiant en L3 informatique dans le parcours MIAGE de l’Université de Lille. 
+Je m’appelle Marvens Oliver Joseph, étudiant en L3 informatique dans le parcours MIAGE(Méthodes Informatiques appliquées à la GEstion des entreprises) de l’Université de Lille. 
 Je suis à la recherche d’un stage de fin de licence d’une durée d’au moins 2 mois.
 Quelques liens vers mes profils : 
 Mon LinkedIn : https://www.linkedin.com/in/marvens-oliver-joseph ; 
@@ -52,12 +52,12 @@ cd <nom-du-repo>
 ```
 
 ### 2. Lancer le back-end
-Depuis le dossier `backend`, exécuter : 
+- Depuis le dossier `backend`, exécuter : 
 ```bash
 cd backend
 ./mvnw spring-boot:run
 ```
-Pour compiler les tests unitaires :
+- Pour compiler les tests unitaires :
 Depuis la racine du back-end, éxecuter : 
 ```bash
 ./mvnw test 
@@ -112,7 +112,7 @@ Oui. L’outil qui m’a le plus apporté ici est la console H2, que je connaiss
 
 Cet exercice m’a permis de l’utiliser pour inspecter la base locale, vérifier la création des tables, exécuter des requêtes SQL simples et surtout confirmer que les données envoyées depuis le front étaient bien enregistrées côté back-end. Cela m’a été utile non seulement pour valider le fonctionnement global, mais aussi pour comprendre plus précisément où se situait un problème lorsqu’un envoi de formulaire échouait.
 
-Au-delà de l’outil lui-même, j’ai surtout appris à mieux m’appuyer sur la base comme point de contrôle pendant le développement, et pas uniquement sur l’interface front ou les logs de l’application.
+J’ai surtout appris à mieux m’appuyer sur la base comme point de contrôle pendant le développement, et pas uniquement sur l’interface front ou les logs de l’application.
 
  ### Quelle est la place du développement web dans votre cursus de formation ?
 Le développement web occupe une place prépondérante dans mon parcours, à la fois dans ma formation universitaire et dans mes projets personnels.
@@ -130,5 +130,5 @@ Le web représente donc pour moi à la fois un terrain d’application de mes co
  
 Enfin, pour identifier des incohérences comme des erreurs de syntaxe et corriger.
 
-Je garde toujours la main sur les choix finaux. Je teste ce qui est proposé, je corrige, j’adapte au contexte du projet, et je ne conserve que ce que je comprends et que je trouve cohérent. 
+Je garde toujours la main sur les choix finaux. Je teste ce qui est proposé, je corrige son code smell, j’adapte au contexte du projet, et je ne conserve que ce que je comprends et que je trouve cohérent. 
 Dans cet exercice, l’IA m’a surtout servi d’accélérateur de réflexion, d’aide au débogage et d’appui pour ajuster plus finement l’intégration de la maquette. 
